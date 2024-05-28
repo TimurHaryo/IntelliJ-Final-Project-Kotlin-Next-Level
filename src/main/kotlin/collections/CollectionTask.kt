@@ -36,9 +36,6 @@ fun main() {
 private fun filterProductByType(productType: ProductType): List<Product> {
     // TODO: return list of product with given type only
     return purchasedProducts
-        .filter {
-            it.category == productType
-        }
 }
 
 private fun filterProductByPriceRange(
@@ -47,33 +44,26 @@ private fun filterProductByPriceRange(
 ): List<Product> {
     // TODO: return list of product with its price is between minPrice and maxPrice
     return purchasedProducts
-        .filter {
-            it.price in minPrice..maxPrice
-        }
 }
 
 private fun findHighestProductPrice(): Product? {
     // TODO: return a single product which its price is the highest among the others
-    return purchasedProducts.maxByOrNull { it.price }
+    return null
 }
 
 private fun findLowestProductPrice(): Product? {
     // TODO: return a single product which its price is the lowest among the others
-    return purchasedProducts.minByOrNull { it.price }
+    return null
 }
 
 private fun getUppercaseProductNames(): List<String> {
     // TODO: return list of product name in uppercase. you should convert list of product into list of string
-    return purchasedProducts
-        .map { it.name.uppercase() }
+    return emptyList()
 }
 
 private fun calculateTotalPrice(): Double {
     // TODO: return sum of all product price
-    return purchasedProducts
-        .sumOf {
-            it.price
-        }
+    return 0.0
 }
 
 private fun countProductEachType(): Map<ProductType, Int> {
@@ -81,22 +71,12 @@ private fun countProductEachType(): Map<ProductType, Int> {
      * TODO: return map of product type with its number of product.
      * @sample: {FOOD=2, ELECTRONIC=1, CLOTHES=1, BEVERAGE=1}
      * */
-    return purchasedProducts
-        .groupBy {
-            it.category
-        }
-        .mapValues {
-            it.value.count()
-        }
+    return emptyMap()
 }
 
 private fun findLargestQuantityProductType(): Pair<ProductType, Int> {
     /**
      * TODO: return pair of product type and its quantity with largest quantity.
      * */
-    return countProductEachType()
-        .maxBy {
-            it.value
-        }
-        .toPair()
+    return ProductType.FOOD to 0
 }
